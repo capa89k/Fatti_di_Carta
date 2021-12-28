@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.addBookButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelVersion = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.labelEditors = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -38,7 +39,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelBooks = new System.Windows.Forms.Label();
             this.scontrinoButton = new System.Windows.Forms.Button();
-            this.labelVersion = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -55,7 +55,7 @@
             this.addBookButton.TabIndex = 0;
             this.addBookButton.Text = "Aggiungi un Libro";
             this.addBookButton.UseVisualStyleBackColor = true;
-            this.addBookButton.Click += new System.EventHandler(this.button1_Click);
+            this.addBookButton.Click += new System.EventHandler(this.addBookButton_Click);
             // 
             // panel1
             // 
@@ -69,6 +69,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(576, 291);
             this.panel1.TabIndex = 1;
+            // 
+            // labelVersion
+            // 
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.Location = new System.Drawing.Point(532, 273);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(41, 13);
+            this.labelVersion.TabIndex = 2;
+            this.labelVersion.Text = "version";
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // groupBox3
             // 
@@ -140,16 +150,6 @@
             this.scontrinoButton.Text = "Fai uno Scontrino";
             this.scontrinoButton.UseVisualStyleBackColor = true;
             this.scontrinoButton.Click += new System.EventHandler(this.scontrinoButton_Click);
-            // 
-            // labelVersion
-            // 
-            this.labelVersion.AutoSize = true;
-            this.labelVersion.Location = new System.Drawing.Point(532, 273);
-            this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(41, 13);
-            this.labelVersion.TabIndex = 2;
-            this.labelVersion.Text = "version";
-            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Main
             // 

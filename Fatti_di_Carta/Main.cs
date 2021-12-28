@@ -15,8 +15,8 @@ namespace Fatti_di_Carta
     public partial class Main : Form
     {
         //Reference to sub forms used by the main one
-        private ModalForms.AddBook addBookForm;
-        private ModalForms.Scontrino scontrinoForm;
+        private readonly ModalForms.AddBook addBookForm;
+        private readonly ModalForms.Scontrino scontrinoForm;
         public Main()
         {
             InitializeComponent();
@@ -30,6 +30,11 @@ namespace Fatti_di_Carta
             //Set the version number on the label
             this.labelVersion.Text = "v" + Application.ProductVersion;
         }
+        /// <summary>
+        /// Fetch the stats to show on the main form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void getBaseStats(object sender, EventArgs args)
         {
             int i = 0;
@@ -63,6 +68,7 @@ namespace Fatti_di_Carta
                             labels[i].Text = reader[0].ToString();
                         }
                         reader.Close();
+                        cmd.Dispose();
                         i++;
                     }
                 }
@@ -81,17 +87,6 @@ namespace Fatti_di_Carta
             }
         }
         /// <summary>
-        /// Handle the click on the add book button. Open the proper dialog form.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.addBookForm.ShowDialog();
-            //Fetch again the stats to stay updated
-            this.getBaseStats(sender, e);
-        }
-        /// <summary>
         /// Handle the click on the make scontrino button. Open the proper dialog form.
         /// </summary>
         /// <param name="sender"></param>
@@ -100,6 +95,17 @@ namespace Fatti_di_Carta
         {
             this.scontrinoForm.resetForm();
             this.scontrinoForm.ShowDialog();
+        }
+        /// <summary>
+        /// Handle the click on add book button. Open the proper dialog form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void addBookButton_Click(object sender, EventArgs e)
+        {
+            this.addBookForm.ShowDialog();
+            //Fetch again the stats to stay updated
+            this.getBaseStats(sender, e);
         }
     }
 }
