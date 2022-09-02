@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.addBookButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.giveBackButton = new System.Windows.Forms.Button();
             this.labelVersion = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.labelEditors = new System.Windows.Forms.Label();
@@ -40,6 +42,7 @@
             this.labelBooks = new System.Windows.Forms.Label();
             this.scontrinoButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -47,11 +50,11 @@
             // 
             // addBookButton
             // 
-            this.addBookButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addBookButton.Location = new System.Drawing.Point(2, 224);
+            this.addBookButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBookButton.Location = new System.Drawing.Point(9, 66);
             this.addBookButton.Margin = new System.Windows.Forms.Padding(2);
             this.addBookButton.Name = "addBookButton";
-            this.addBookButton.Size = new System.Drawing.Size(283, 42);
+            this.addBookButton.Size = new System.Drawing.Size(183, 42);
             this.addBookButton.TabIndex = 0;
             this.addBookButton.Text = "Aggiungi un Libro";
             this.addBookButton.UseVisualStyleBackColor = true;
@@ -59,21 +62,44 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.labelVersion);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.scontrinoButton);
-            this.panel1.Controls.Add(this.addBookButton);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(576, 291);
+            this.panel1.Size = new System.Drawing.Size(600, 331);
             this.panel1.TabIndex = 1;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.giveBackButton);
+            this.groupBox4.Controls.Add(this.addBookButton);
+            this.groupBox4.Location = new System.Drawing.Point(388, 12);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(200, 118);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Gestione Libreria";
+            // 
+            // giveBackButton
+            // 
+            this.giveBackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.giveBackButton.Location = new System.Drawing.Point(9, 19);
+            this.giveBackButton.Name = "giveBackButton";
+            this.giveBackButton.Size = new System.Drawing.Size(185, 42);
+            this.giveBackButton.TabIndex = 5;
+            this.giveBackButton.Text = "Fai un reso";
+            this.giveBackButton.UseVisualStyleBackColor = true;
+            this.giveBackButton.Click += new System.EventHandler(this.giveBackButton_Click);
             // 
             // labelVersion
             // 
             this.labelVersion.AutoSize = true;
-            this.labelVersion.Location = new System.Drawing.Point(532, 273);
+            this.labelVersion.Location = new System.Drawing.Point(547, 309);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(41, 13);
             this.labelVersion.TabIndex = 2;
@@ -83,17 +109,17 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.labelEditors);
-            this.groupBox3.Location = new System.Drawing.Point(385, 4);
+            this.groupBox3.Location = new System.Drawing.Point(12, 172);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(188, 95);
+            this.groupBox3.Size = new System.Drawing.Size(188, 78);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Editori";
             // 
             // labelEditors
             // 
-            this.labelEditors.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEditors.Location = new System.Drawing.Point(6, 41);
+            this.labelEditors.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEditors.Location = new System.Drawing.Point(6, 16);
             this.labelEditors.Name = "labelEditors";
             this.labelEditors.Size = new System.Drawing.Size(176, 51);
             this.labelEditors.TabIndex = 1;
@@ -103,17 +129,17 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.labelAuthors);
-            this.groupBox2.Location = new System.Drawing.Point(194, 4);
+            this.groupBox2.Location = new System.Drawing.Point(12, 88);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(188, 95);
+            this.groupBox2.Size = new System.Drawing.Size(188, 78);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Autori";
             // 
             // labelAuthors
             // 
-            this.labelAuthors.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAuthors.Location = new System.Drawing.Point(6, 41);
+            this.labelAuthors.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAuthors.Location = new System.Drawing.Point(6, 16);
             this.labelAuthors.Name = "labelAuthors";
             this.labelAuthors.Size = new System.Drawing.Size(179, 51);
             this.labelAuthors.TabIndex = 1;
@@ -123,17 +149,17 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.labelBooks);
-            this.groupBox1.Location = new System.Drawing.Point(3, 4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(188, 95);
+            this.groupBox1.Size = new System.Drawing.Size(188, 78);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Libri";
             // 
             // labelBooks
             // 
-            this.labelBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBooks.Location = new System.Drawing.Point(6, 41);
+            this.labelBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBooks.Location = new System.Drawing.Point(6, 16);
             this.labelBooks.Name = "labelBooks";
             this.labelBooks.Size = new System.Drawing.Size(176, 51);
             this.labelBooks.TabIndex = 0;
@@ -143,9 +169,9 @@
             // scontrinoButton
             // 
             this.scontrinoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scontrinoButton.Location = new System.Drawing.Point(290, 224);
+            this.scontrinoButton.Location = new System.Drawing.Point(12, 264);
             this.scontrinoButton.Name = "scontrinoButton";
-            this.scontrinoButton.Size = new System.Drawing.Size(283, 42);
+            this.scontrinoButton.Size = new System.Drawing.Size(576, 42);
             this.scontrinoButton.TabIndex = 1;
             this.scontrinoButton.Text = "Fai uno Scontrino";
             this.scontrinoButton.UseVisualStyleBackColor = true;
@@ -155,7 +181,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 307);
+            this.ClientSize = new System.Drawing.Size(600, 331);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -165,6 +191,7 @@
             this.Text = "Fatti di Carta";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -184,6 +211,8 @@
         private System.Windows.Forms.Label labelEditors;
         private System.Windows.Forms.Label labelAuthors;
         private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.Button giveBackButton;
+        private System.Windows.Forms.GroupBox groupBox4;
     }
 }
 

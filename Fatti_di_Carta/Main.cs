@@ -17,6 +17,7 @@ namespace Fatti_di_Carta
         //Reference to sub forms used by the main one
         private readonly ModalForms.AddBook addBookForm;
         private readonly ModalForms.Scontrino scontrinoForm;
+        private readonly ModalForms.GiveBack giveBackForm;
         public Main()
         {
             InitializeComponent();
@@ -25,6 +26,8 @@ namespace Fatti_di_Carta
             this.addBookForm.Visible = false;
             this.scontrinoForm = new ModalForms.Scontrino();
             this.scontrinoForm.Visible = false;
+            this.giveBackForm = new ModalForms.GiveBack();
+            this.giveBackForm.Visible = false;
             //Set up shown callback to fire on first show
             this.Shown += this.getBaseStats;
             //Set the version number on the label
@@ -93,7 +96,6 @@ namespace Fatti_di_Carta
         /// <param name="e"></param>
         private void scontrinoButton_Click(object sender, EventArgs e)
         {
-            this.scontrinoForm.resetForm();
             this.scontrinoForm.ShowDialog();
         }
         /// <summary>
@@ -106,6 +108,15 @@ namespace Fatti_di_Carta
             this.addBookForm.ShowDialog();
             //Fetch again the stats to stay updated
             this.getBaseStats(sender, e);
+        }
+        /// <summary>
+        /// Handle the give back button. Open the proper dialog form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void giveBackButton_Click(object sender, EventArgs e)
+        {
+            this.giveBackForm.ShowDialog();
         }
     }
 }
