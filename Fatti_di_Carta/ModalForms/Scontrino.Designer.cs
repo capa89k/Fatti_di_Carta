@@ -68,6 +68,7 @@
             this.columnHeaderTitle,
             this.columnHeaderPrice});
             this.listView.FullRowSelect = true;
+            this.listView.GridLines = true;
             this.listView.HideSelection = false;
             this.listView.Location = new System.Drawing.Point(11, 37);
             this.listView.MultiSelect = false;
@@ -80,12 +81,12 @@
             // columnHeaderTitle
             // 
             this.columnHeaderTitle.Text = "Titolo";
-            this.columnHeaderTitle.Width = 300;
+            this.columnHeaderTitle.Width = 494;
             // 
             // columnHeaderPrice
             // 
             this.columnHeaderPrice.Text = "Prezzo";
-            this.columnHeaderPrice.Width = 100;
+            this.columnHeaderPrice.Width = 129;
             // 
             // totLabel
             // 

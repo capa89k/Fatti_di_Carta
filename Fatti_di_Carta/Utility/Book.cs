@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.OleDb;
 
 namespace Fatti_di_Carta.Utility
 {
     public class Book
     {
+        private int id;
         private string title;
         private decimal price;
         private short quantity;
@@ -17,6 +19,7 @@ namespace Fatti_di_Carta.Utility
 
         public Book()
         {
+            this.id = -1;
             this.title = "";
             this.price = 0;
             this.quantity = 0;
@@ -27,6 +30,9 @@ namespace Fatti_di_Carta.Utility
             this.IdEditor = -1;
             this.IdSupplier = -1;
         }
+        /// The ID inside access
+        /// </summary>
+        public int Id { get => this.id; }
         /// <summary>
         /// The title property.
         /// </summary>
@@ -137,5 +143,69 @@ namespace Fatti_di_Carta.Utility
         /// ID of the supplier property.
         /// </summary>
         public int IdSupplier { get; set; }
+        /// <summary>
+        /// Find a book using the ISBN.
+        /// </summary>
+        /// <param name="isbn"></param>
+        /// <returns></returns>
+        public static Book FindByISBN(string isbn)
+        {
+            Book book = null;
+            bool hasOleDbError = false;
+            //The connection string is required to actually connect
+            string cs = Config.getConnectionString();
+            //The using statement will dispose the connection
+            using (OleDbConnection connection = new OleDbConnection(cs))
+            {
+                try
+                {
+                    //The command will the the select query
+                    OleDbCommand cmd = new OleDbCommand();
+                    //Connecting to access
+                    connection.Open();
+                    //Set up the command
+                    cmd.Connection = connection;
+                    cmd.CommandText = @"SELECT id, titolo, prezzo, deposito, anno, numero_pagine,
+                        id_editore, id_fornitore, id_autore
+                        FROM Libri WHERE isbn = @isbn;";
+                    cmd.Parameters.AddWithValue("@isbn", isbn);
+                    //Perform the query
+                    OleDbDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        book = new Book();
+                        book.id = (int)reader[0];
+                        book.Title = reader[1].ToString();
+                        book.Price = (decimal)reader[2];
+                        book.Quantity = (short)reader[3];
+                        book.Year = (int)reader[4];
+                        book.NPage = (int)reader[5];
+                        book.IdEditor = (int)reader[6];
+                        book.IdSupplier = (int)reader[7];
+                        book.IdAuthor = (int)reader[8];
+                        book.Isbn = isbn;
+                    }
+                    cmd.Dispose();
+                    reader.Close();
+                }
+                catch (OleDbException)
+                {
+                    hasOleDbError = true;
+                }
+                catch (InvalidOperationException)
+                {
+                    hasOleDbError = true;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+                if (hasOleDbError)
+                {
+                    throw new InvalidOperationException();
+                }
+                return book;
+            }
+        }
     }
 }

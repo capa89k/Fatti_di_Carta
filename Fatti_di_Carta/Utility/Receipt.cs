@@ -22,15 +22,15 @@ namespace Fatti_di_Carta.Utility
         /// Add an item to the receipt.
         /// </summary>
         /// <param name="item"></param>
-        public void addItem(ReceiptItem item)
+        public void addItem(Book book)
         {
-            if (this.items.ContainsKey(item.Id))
+            if (this.items.ContainsKey(book.Id))
             {
-                this.items[item.Id]++;
+                this.items[book.Id]++;
             }
             else
             {
-                this.items.Add(item.Id, 1);
+                this.items.Add(book.Id, 1);
             }
         }
         /// <summary>
