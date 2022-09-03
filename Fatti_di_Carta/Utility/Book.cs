@@ -153,7 +153,7 @@ namespace Fatti_di_Carta.Utility
             Book book = null;
             bool hasOleDbError = false;
             //The connection string is required to actually connect
-            string cs = Config.getConnectionString();
+            string cs = Config.GetConnectionString();
             //The using statement will dispose the connection
             using (OleDbConnection connection = new OleDbConnection(cs))
             {

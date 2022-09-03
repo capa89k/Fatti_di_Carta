@@ -133,7 +133,7 @@ namespace Fatti_di_Carta.ModalForms
         {
             int r = 0;
             //The connection string is required to actually connect
-            string cs = Utility.Config.getConnectionString();
+            string cs = Utility.Config.GetConnectionString();
             //Check that the list view is not empty
             if(this.listBookView.Items.Count == 0)
             {

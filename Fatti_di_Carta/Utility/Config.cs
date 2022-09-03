@@ -11,7 +11,7 @@ namespace Fatti_di_Carta.Utility
     {
         private const string csName = "Fatti_di_Carta.Properties.Settings.databaseConnectionString";
 
-        public static string getConnectionString()
+        public static string GetConnectionString()
         {
             return ConfigurationManager.ConnectionStrings[csName].ConnectionString;
         }

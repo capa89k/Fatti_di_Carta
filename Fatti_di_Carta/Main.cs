@@ -41,7 +41,7 @@ namespace Fatti_di_Carta
         private void getBaseStats(object sender, EventArgs args)
         {
             int i = 0;
-            string cs = Config.getConnectionString();
+            string cs = Config.GetConnectionString();
             //Fill the list of queries to perform
             List<String> queries = new List<string>(3);
             queries.Add("SELECT COUNT(*) as nbooks FROM Libri;");

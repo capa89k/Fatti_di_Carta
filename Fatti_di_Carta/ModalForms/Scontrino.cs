@@ -109,7 +109,7 @@ namespace Fatti_di_Carta.ModalForms
         private void confirmButton_Click(object sender, EventArgs e)
         {
             //The connection string is required to actually connect
-            string cs = Config.getConnectionString();
+            string cs = Config.GetConnectionString();
             //The number of line updated
             int r = 0;
             //Create the receipt that will be later stored
